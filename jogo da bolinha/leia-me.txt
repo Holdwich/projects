@@ -1,0 +1,6 @@
+feito para o projeto final de lógica de programação.
+
+dependências:
+- Pygraphics
+- pygame
+- pathlib
