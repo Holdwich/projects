@@ -125,7 +125,7 @@ void display() {
 	gluLookAt(0.0f, 0.0f, 5.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
 	glRotatef(30.0f, 1.0f, 0.0f, 0.0f); // rota��o no �ngulo y
 	glRotatef(rotationAngle, 0.0f, 1.0f, 0.0f); // aplica rota��o
-	desenhaEstrelas(); // desenha estrelas no background a cada chamado (solu��o ruim pra parecer q t� rodando)
+	desenhaEstrelas(); // desenha estrelas no background a cada chamado
 	desenhaArwing(); // desenha a nave
 	glFlush();
 	glutSwapBuffers(); //troca buffer (rota��o mais suave com 2 buffers)
