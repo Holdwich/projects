@@ -1,5 +1,6 @@
 #include <cstdlib>
 #include <glut.h>
+#include <gl.h>
 
 float rotationAngle = 0.0f;
 
@@ -125,7 +126,14 @@ void display() {
 	gluLookAt(0.0f, 0.0f, 5.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
 	glRotatef(30.0f, 1.0f, 0.0f, 0.0f); // rota��o no �ngulo y
 	glRotatef(rotationAngle, 0.0f, 1.0f, 0.0f); // aplica rota��o
-	desenhaEstrelas(); // desenha estrelas no background a cada chamado
+	GLfloat spot_position[] = { 0.0f, 2.0f, 1.0f, 0.25f }; // pos. holofote
+	GLfloat spot_direction[] = { 0.0f, -1.0f, 0.0f }; // dir. holofote
+	glLightfv(GL_LIGHT0, GL_POSITION, spot_position);
+	glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, spot_direction);
+	glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, 45.0f);
+	glLightf(GL_LIGHT0, GL_SPOT_EXPONENT, 0.5f);
+	glEnable(GL_LIGHT0);
+	desenhaEstrelas();
 	desenhaArwing(); // desenha a nave
 	glFlush();
 	glutSwapBuffers(); //troca buffer (rota��o mais suave com 2 buffers)
@@ -153,7 +161,9 @@ int main(int argc, char** argv) {
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH); // 2 buffers
 	glutInitWindowSize(800, 600);
 	glutCreateWindow("Arwing (Starfox)");
-	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_DEPTH_TEST); // Habilita profundidade
+	glEnable(GL_LIGHTING); // Habilita a iluminação
+	glEnable(GL_COLOR_MATERIAL); // Habilita o material baseado nas cores dos vértices
 	glutDisplayFunc(display);
 	glutReshapeFunc(reshape);
 	glutTimerFunc(0, update, 0); // inicia o timer
