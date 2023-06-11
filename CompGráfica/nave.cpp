@@ -86,16 +86,16 @@ void display() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity();
     gluLookAt(0.0f, 0.0f, 5.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
-    glRotatef(30.0f, 1.0f, 0.0f, 0.0f); // rotação no ângulo y
-    glRotatef(rotationAngle, 0.0f, 1.0f, 0.0f); // aplica rotação
-    desenhaEstrelas(); // desenha estrelas no background a cada chamado (solução ruim pra parecer q tá rodando)
+    glRotatef(30.0f, 1.0f, 0.0f, 0.0f); // rotaÃ§Ã£o no Ã¢ngulo y
+    glRotatef(rotationAngle, 0.0f, 1.0f, 0.0f); // aplica rotaÃ§Ã£o
+    desenhaEstrelas(); // desenha estrelas no background a cada chamado
     desenhaArwing(); // desenha a nave
     glFlush();
     glutSwapBuffers();
 }
 
 void update(int value) {
-    rotationAngle += 1.0f; // atualiza angulo de rotação
+    rotationAngle += 1.0f; // atualiza angulo de rotaÃ§Ã£o
     if (rotationAngle > 360.0f) {
         rotationAngle -= 360.0f;
     }
