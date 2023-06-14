@@ -1,0 +1,10 @@
+CREATE TABLE tb_veiculo(
+  idt_veiculo INT AUTO_INCREMENT PRIMARY KEY,
+  nme_veiculo VARCHAR(50) NOT NULL,
+  vlr_veiculo DECIMAL(10,2) NOT NULL);
+
+INSERT INTO tb_veiculo (nme_veiculo, vlr_veiculo) VALUES
+  ('Audi S3', 449000),  ('BMW 320i', 319000),   ('Classe C 200', 400000),
+  ('Jetta GLi', 219000),   ('Lancer HL', 149000),   ('Frontier XE', 289000),
+  ('Amarok V6', 350000),   ('Audi S5 Sportback', 519000),   ('Q3 Quattro', 359000);
+
