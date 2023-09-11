@@ -1,6 +1,3 @@
-
-#GRUPO: Matheus Castro, Arthur Arash, Filipe e Gabriel Ribeiro
-
 # [nome, tempo de execução, prioridade]
 processos = [["X", 4, 4], ["Y", 10, 3], ["Z", 2, 1]]
 
